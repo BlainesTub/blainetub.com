@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blaine Tubungbanua's Portfolio</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+            color: #333;
+        }
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .intro {
+            display: flex;
+            align-items: center;
+            margin-bottom: 50px;
+        }
+        .intro img {
+            width: 160px;
+            height: 150px;
+            border-radius: 25%;
+            margin-right: 20px;
+        }
+        .intro h1 {
+            font-size: 2.5em;
+            margin: 0;
+        }
+        .projects {
+            margin-top: 50px;
+        }
+        .projects h2 {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .project-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        .project {
+            background: white;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            padding: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+        .project img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 4px;
+            margin-bottom: 10px;
+        }
+        .project h3 {
+            margin: 0;
+            font-size: 1.5em;
+        }
+        .project p {
+            margin: 10px 0;
+        }
+        .project button {
+            display: block;
+            margin: 10px auto;
+            padding: 10px 20px;
+            font-size: 1em;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 2px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .project button:hover {
+            background-color: #0056b3;
+        }
+        .project-details {
+            display: none;
+            margin-top: 10px;
+        }
+        .project.expanded {
+            grid-column: span 2;
+            grid-row: span 1;
+        }
+        .project.expanded .project-details {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Intro Section -->
+        <div class="intro">
+            <img src="pp.png" alt="Blaine Tubungbanua">
+            <div>
+                <h1>Hi, I'm Blaine Tubungbanua</h1>
+                <p>Welcome to my portfolio! I'm a mechanical engineering student passionate about aerospace, rocketry, and design.</p>
+            </div>
+        </div>
+
+        <!-- Projects Section -->
+        <div class="projects">
+            <h2>Projects</h2>
+            <div class="project-container">
+                <div class="project">
+                    <h3>Project Title 1</h3>
+                    <img src="project1.jpg" alt="Project 1">
+                    <p>Short description of Project 1.</p>
+                    <button onclick="toggleDetails(this)">See More</button>
+                    <div class="project-details">
+                        <p>More detailed information about Project 1. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                    </div>
+                </div>
+                <div class="project">
+                    <h3>Project Title 2</h3>
+                    <img src="project2.jpg" alt="Project 2">
+                    <p>Short description of Project 2.</p>
+                    <button onclick="toggleDetails(this)">See More</button>
+                    <div class="project-details">
+                        <p>More detailed information about Project 2. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                    </div>
+                </div>
+                <!-- Add more projects as needed -->
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function toggleDetails(button) {
+            const project = button.closest('.project');
+            project.classList.toggle('expanded');
+        }
+    </script>
+</body>
+</html>
