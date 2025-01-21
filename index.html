@@ -13,7 +13,7 @@
             <img src="pp.png" alt="Blaine Tubungbanua">
             <div>
                 <h1>Hi, I'm Blaine Tubungbanua</h1>
-                <p>Welcome to my portfolio! I'm a mechanical engineering student passionate about aerospace, rocketry, and design.</p>
+                <p>Welcome to my portfolio! I'm a mechanical engineering student passionate about mechatronic design, and aerospace. Here are some of my engineering projects.</p>
             </div>
         </div>
 
@@ -22,27 +22,257 @@
             <h2>Projects</h2>
             <div class="project-container">
                 <div class="project">
-                    <h3>Project Title 1</h3>
-                    <img src="project1.jpg" alt="Project 1">
-                    <p>Short description of Project 1.</p>
+                    <h3>CAPSTONE: Rod Rescue: Custom Sanding Machine</h3>
+                    <img src="/assets/images/Capstone-1.png" alt="Project 1">
+                    <p>For my engineering capstone project at the University of Victoria, my group and I were tasked with
+                        designing a custom sanding machine for a local powder coat shop to remove powder coat overspray from steel hanging rods. </p>
                     <button onclick="toggleDetails(this)">See More</button>
                     <div class="project-details">
-                        <p>More detailed information about Project 1. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                        <p>Our client, JS. Foster Corp, is a machine shop that offers powder coating services. To achieve this, they hang parts 
+                            on steel rods with hooks, which are then cured in an oven. To ensure adequate paint transfer efficiency, a solid 
+                            electrical connection to ground the hanging rods is required. This requirement meant that paint overspray on the rods 
+                            needed to be removed by hand, and unpopular task on the shop floor. The hanging rods also have a washer welded on the 
+                            ends to prevent them from sliding off the racking.
+
+                        </p>
+                        <p><strong>My Responsibilities:</strong></p>
+                        <ol>
+                            <li>Angled Idler Assembly - Converts rotation to axial translation</li>
+                            <li>Electrical System - Power calculations, component selection, programming, schematics</li>
+                            <li>Structural Analysis - Loading, stress, and fatigue analysis on shafts and sanding arms</li>
+                        </ol>
+                        <div class="project-img-box">
+                            <h3>Angled Idler Assembly: Test Jig</h3>
+                            <img src="/assets/images/Capstone-2.png" alt="Project 2">
+                            <p>I designed this test jig to verify that the angled idler would convert rotation to axial translation</p>
+                            <ul>
+                                <li>3D printed pillow blocks secure the bearings for the rollers, and a 3D printed adjustable roller assembly allows the angle of the idler to be calibrated. </li>
+                                <li>Parallel powered rollers causing the bar to spin, and an angled idler roller applies pressure from above, exerting an axial force to allow translation.</li>
+                                <li>The bottom rollers were designed to have a higher hardness rating, to promote slipping along the parallel rollers while gripping the top roller.</li>
+                                <li>In this  test jig, the parallel rollers were powered by a cordless drill, and a handheld belt sander simulates the forces from the sander</li>
+                            </ul>
+                            <p>This testing jig allowed us to verify the concept, and estimate how much downward force was required from the top roller to facilitate axial 
+                                sliding without seizing.
+                            </p>
+                        </div>
+                        <p></p>
+                        <div class="project-img-box">
+                            <h3>Angled Idler Assembly: Final Design</h3>
+                            <img src="/assets/images/Capstone-3.png" alt="Project 2">
+                                <p>This was my final design for the angled idler assembly.</p>
+                                <ul>
+                                    <li>The whole assembly can slide up and down along the two shoulder bolts, which locate the springs, supplying the required downwards force on the bar.</li>
+                                    <li>Smooth sliding is ensured by the two brass bushings in the top square bar.</li>
+                                    <li>To simplify machining requirements A shoulder bolt is used as the shaft, locating two bearings with 3D printed spacers.</li>
+                                </ul>
+                        </div>
+                        <p></p>
+                        <div class="project-img-box">
+                            <h3>Angled Idler Assembly: Spring Calculations</h3>
+                            <img src="/assets/images/Capstone-4.png" alt="Project 2">
+                                <p>To ensure that the angled idler supplies sufficient downwards force to facilitate axial translation, I conducted spring stiffness and pre-tension calculations</p>
+                                <ul>
+                                    <li>Empirical testing showed that ~15lbs of force was required to facilitate translation.</li>
+                                    <li>Spring pre-tension, and buttom-out position were considered, and a spring stiffness and length were selected to supply 15lbs-20lbs for rods over a range of motion that could accept varying bar diameters, from ½” and 7/8”, as requested by the client.</li>
+                                </ul>
+                        </div>
+                        <div class="project-img-box">
+                            <h3>PCB Shield</h3>
+                            <img src="/assets/images/Capstone-5.png" alt="Project 2">
+                                <p>To ensure robust electrical connections between the Arduino and the peripherals in a high-vibration environment, I designed a custom PCB shield.</p>
+                                <ul>
+                                    <li>This shield implemented screw terminals, labels, pull-up resistors, reverse polarity protection, and a temperature sensor to detect overheating.</li>
+                                    <li>This shield also improved ease of use and cable management for signal-ground pairings, allowing signal pairs to run next to each other.</li>
+                                    <li>The first iteration was designed on protoboard, shown above.</li>
+                                    <li>The final iteration was designed in KiCad.</li>
+                                  </ul>
+                        </div>
                     </div>
                 </div>
                 <div class="project">
-                    <h3>Project Title 2</h3>
-                    <img src="project2.jpg" alt="Project 2">
-                    <p>Short description of Project 2.</p>
+                    <h3>UVic Rocketry: Test Stand Instrumentation System</h3>
+                    <img src="assets/images/PDP-2.png" alt="Project 2">
+                    <p>The instrumentation system for the UVic Rocketry hybrid rocket engine test stand.
+                        Designed to monitor and record temperatures, pressures, massflow, and thrust for
+                        static hotfire tests.
+                     </p>
                     <button onclick="toggleDetails(this)">See More</button>
                     <div class="project-details">
-                        <p>More detailed information about Project 2. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                        <p>As instrumentation lead, I was responsible for designing the instrumentation system,
+                            acquiring hardware, soldering connectors to sensors, calibrating the sensors,
+                            and writing LabVIEW instrumentation code.
+                        </p>
+                        <div class="project-img-box">
+                            <img src="/assets/images/PDP-4.png" alt="Project 2">
+                                <p>Instrumentation components in the electrical box.
+                                    The system uses a LabJack U6 DAQ, connected to 2 multiplexor boards.
+                                    The cables are then grouped at DIN terminals and connect to 4-strand cable which
+                                    are soldered to the connectors interfacing with the outside of the cabinet.</p>
+                        </div>
+                        <p>
+                        </p>
+                        <div class="project-img-box">
+                            <img src="/assets/images/PDP-3.png" alt="Project 2">
+                                <p>Calibration of our thrust load cell on MTI tensile tester.</p>
+                        </div>
+                        <p>
+
+                        </p>
+                        <div class="project-img-box">
+                            <img src="/assets/images/PDP-1.png" alt="Project 2">
+                                <p>Successful hotfire of Mule-1, the team's test engine, 
+                                    verifying functionality of the test platform.
+                                </p>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="project">
+                    <h3>UVic Rocketry: N2O Injector CFD Analysis</h3>
+                    <img src="/assets/images/Injector-1.png" alt="Project 1">
+                    <p>CFD Analysis of different hybrid rocket engine injector configurations to achieve desired
+                        mass flow, pressure drop, and atomization into the combustion chamber, completed in ANSYS Fluent.
+                    </p>
+                    <button onclick="toggleDetails(this)">See More</button>
+                    <div class="project-details">
+                        <p>This project was complepted in partnership with UVic Rocketry, and as a deliverable for a UVic technical elective:
+                            Computer Aided Engineering, where I studied modelling, FEA, and CFD in Siemens NX, and ANSYS.
+                        </p>
+                        <div class="project-img-box">
+                            <h3>2D & 3D Meshing</h3>
+                            <img src="/assets/images/Injector-2.png" alt="Project 2">
+                            <p></p>
+                            <p>To accelerate simulation time, 2D and 3D models were used. 2D simulations were used to quickly alter geometry and simulate results
+                                while 3D models were used to verify the 2D results and test the final configuration.
+                            </p>
+                        </div>
+                        <p>The scope of this simulation only covered injector flow, assuming no combustion, eliminating comustion simulation commplications,
+                            instead focusing on simulating pressures for cold flow tests.
+                        </p>
+                        <div class="project-img-box">
+                            <img src="/assets/images/Injector-4.png" alt="Project 2">
+                                <p>Optimization of the orifice diameter, length, and angle were investigated.
+                                    To accelerate simulation time, a simplfied 2D single orifice model was used, 
+                                    and and open-loop parameter optimization was conducted using the parameter set tools in ANSYS Workbench.
+                                </p>
+                        </div>
+                        <p></p>
+                        <div class="project-img-box">
+                            <img src="/assets/images/Injector-5.png" alt="Project 2">
+                                <p>A swirl injector was also investigated, proving to eliminate the air eddy seen in the non-swirled configuration.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="project">
+                    <h3>Mechatronic Conveyor Belt Sorter</h3>
+                    <img src="/assets/images/Mechatronic-1.png" alt="Project 1">
+                    <p>I wrote embedded software to control a conveyor belt sorting machine, programmed in bare-metal C, manually flipping
+                        bits on an ATMega2560 to access onboard clock, timers, PWM, ADC, and interrupt flags.  
+                    </p>
+                    <button onclick="toggleDetails(this)">See More</button>
+                    <div class="project-details">
+                        <p>The system is designed to sort 48 cylinders of 4 different materials. It distinguishes the materials using a reflectometer, storing 
+                            the categorized objects in a linked list. The cylinders are then dropped into a rotating bucket, actuated by a stepper motor.
+                            Debounce code was written into the push-button interface.
+                            
+                        </p>
+                        <div class="project-img-box">
+                            <img src="/assets/images/Mechatronic-3.png" alt="Project 2">
+                            <p>IO wired to the Arduino Mega. Push buttons control start/stop/pause functionality, with custom debounce code written. LCD screen displays number of 
+                                each material counted. 47kOhm resistors are also wired into sensors, acting as low-pass filters to eliminate false triggers
+                                caused by electrical noise generated by the brushed DC motor. Clean cable management was one of the deliverables.
+                            </p>
+                        </div>
+                        <p>
+                        </p>
+                        <div class="project-img-box">
+                            <img src="/assets/images/Mechatronic-2.png" alt="Project 2">
+                                <p>The system was designed as a finite state machine, shown in this diagram.</p>
+                                <ul>
+                                    <li>As the system categorizes incoming cylinderes, they are stored in a linked list</li>
+                                    <li>A software debounce was implemented for the push-button interface</li>
+                                    <li>Interrupt Service Routines (ISRs) were programmed to detect sensor triggers, and button presses. </li>
+                                </ul>
+                        </div>
+                        <p></p>
+                        <div class="project-img-box">
+                            <img src="/assets/images/Mechatronic-4.png" alt="Project 2">
+                                <p>A reflectometer sensor was used to distinguish each distinct material. To calibrate the system, 
+                                    the amount of light reflected for each material was determined by measuring the voltage off the reflectance sensor. 
+                                    After taking a large sample size, the different materials were categorized. 
+                                </p>
+                                <ul>
+                                    <li>A - Aluminum</li>
+                                    <li>S - Steel</li>
+                                    <li>W - White Plastic </li>
+                                    <li>B - Black Plastic</li>
+                                </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="project">
+                    <h3>Machine Design: Tugboat Gearbox Assembly</h3>
+                    <img src="/assets/images/Gearbox-1.png" alt="Project 1">
+                    <p>Design of a gearbox for a hybrid electric tugboat, combining a input power from a 2500kW diesel prime mover with a 1500kW electric engine, 
+                        reducing the shaft speeds from 1000 and 3000rpm.
+                    </p>
+                    <button onclick="toggleDetails(this)">See More</button>
+                    <div class="project-details">
+                        <p>Work Done:</p>
+                        <ul>
+                            <li>Conducted loading, stress, and fatigue calculations with stress concentrations.</li>
+                            <li>Conducted initial sizing of gears to achieve manageable stress for material.</li>
+                            <li>Detailed bearing selection, specifying locating and non-locating bearings.</li>
+                            <li>Iterated through compound gear combinations to minimize loading.</li>
+                            <li>Calculated overall efficiency of the gearbox, including loss contributions from bearings, seals, and meshing efficiency.</li>
+                            <li>Detailed assembly operations and procedures.</li>
+                            <li>Calculated speed ratios to achieve desired reduction.</li>
+                        </ul>
+                        
+                        <div class="project-img-box">
+                            <img src="/assets/images/Gearbox-2.png" alt="Project 2">
+                            <p>3D model of reduction shaft. Labeled features are A: Retaining ring groove, B: Bearing seat, 
+                                C: Bearing abutment shoulder, D: key way, E: Gear shoulder, F: Gear shoulder, G: Key way, 
+                                H: Gear shoulder, I: Key way, J: Bearing abutment shoulder, K: Bearing seat, L:Lock nut threads.
+                            </p>
+                        </div>
+                        <p>
+                        </p>
+                        <div class="project-img-box">
+                            <img src="/assets/images/Gearbox-3.png" alt="Project 2">
+                                <p>Free body diagram of the reduction shaft, considering tangential and radial components of gear meshing forces. 
+                                </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="project">
+                    <h3>1st Place Miniature Flywheel Powered Vehicle</h3>
+                    <img src="/assets/images/Flywheel-1.png" alt="Project 1">
+                    <p>A miniature vehicle, powered by a steel flywheel rotating at 1600 rpm, to propel the vehicle 40m in the shortest time,
+                        designed with lasercut and 3D printed components.
+                    </p>
+                    <button onclick="toggleDetails(this)">See More</button>
+                    <div class="project-details">
+                        <p>Solution: A lasercut plywood chassis, supporting the flywheel on a delrin shaft. The flywheel is free to freely rotate
+                             when the back tool mechanism is held back by a pin. When the pin is removed, a spring engages the black tooth mechanism, 
+                             meshing the flywheel with a spooled belt mechanism. At initial engagement,  the flywheel applies higher torque to the 
+                             drive wheels at the rear. As the belt unspools, the torque reduces and the speed increases. </p>
+                        <div class="project-img-box">
+                            <img src="/assets/images/Flywheel-2.png" alt="Project 2">
+                            <p>Closeup of the meshing mechanism and the belt drive, allowing variable gear ratio. 
+                            </p>
+                        </div>
                     </div>
                 </div>
                 <!-- Add more projects as needed -->
             </div>
         </div>
     </div>
+
+
+
+
+
 
     <script>
         function toggleDetails(button) {
