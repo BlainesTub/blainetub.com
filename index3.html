@@ -5,20 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
         body {
-            font-family: 'Roboto', Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f7f9fc; /* Subtle background color */
-            color: #333;
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f4f4f9;
+        color: #333;
         }
-    
         .container {
             width: 90%;
             max-width: 1200px;
             margin: 0 auto;
             padding: 20px;
         }
-    
         .intro {
             display: flex;
             align-items: center;
@@ -30,104 +28,149 @@
             border-radius: 25%;
             margin-right: 20px;
         }
-    
         .intro h1 {
-            font-size: 2em;
+            font-size: 2.5em;
             margin: 0;
         }
-    
-        .intro p {
-            font-size: 1.1em;
-            color: #555;
-        }
-    
         .projects {
             margin-top: 50px;
         }
-    
         .projects h2 {
             text-align: center;
-            font-size: 1.8em;
             margin-bottom: 30px;
-            color: #222;
         }
-    
         .project-grid {
-            column-count: 3;
-            /*display: grid;
+            display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            grid-auto-rows: 1fr; /*masonry*/
-            gap: 30px;
-
+            gap: 20px;
         }
-    
         .project-box {
             background: white;
-            border: 1px solid rgb(236, 235, 235);
             border-radius: 8px;
-            padding: 20px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            margin-bottom: 30px;
+            padding: 30px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            position: relative;
             overflow: hidden;
+            transition: width 0.3s ease, background-color 0.3s ease;
         }
-    
-        .project-box:hover {
-            transform: translateY(-0px); /* Lift effect on hover */
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        .project-box.collapsed {
+            grid-column: span 1;
+            grid-row: span 1;
         }
-    
-        .project-box img {
+
+        .project-img-box{
+            border-radius: 4px;
+            padding: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            position: relative;
+            overflow: hidden;
+            width: 90%;
+            margin-left: auto;
+            margin-right: auto;
+            text-align: left;
+        }
+
+        .project-img-box img {
             display: block;
-            width: 100%;
+            width: 75%;
             height: auto;
             object-fit: cover;
-            border-radius: 6px;
-            margin-bottom: 15px;
+            padding: 20px;
+            border-radius: 4px;
+            margin-bottom: 10px;
+            margin-left: auto;
+            margin-right: auto;
+            text-align: center;
         }
-    
+        .project-box img {
+            display:block;
+            width: 75%;
+            height: auto;
+            object-fit: cover;
+            padding: 20px;
+            border-radius: 4px;
+            
+            margin-left: auto;
+            margin-right: auto;
+            
+        }
         .project-box h3 {
-            margin: 0 0 10px;
-            font-size: 1.4em;
-            color: #007BFF; /* Modern blue accent */
-        }
-    
-        .project-box p {
             margin: 0;
-            font-size: 0.95em;
-            color: #555;
-            line-height: 1.5;
+            font-size: 1.5em;
         }
-    
-        .toggle-bar {
-            display: none; /* Removed blue bars entirely */
+        .project-box p {
+            margin: 10px 0;
         }
-    
         .project-box button {
             display: block;
-            margin: 20px auto 0;
-            padding: 10px 15px;
-            font-size: 0.95em;
+            margin: 10px auto;
+            padding: 10px 20px;
+            font-size: 1em;
             background-color: #007BFF;
             color: white;
             border: none;
-            border-radius: 4px;
+            border-radius: 2px;
             cursor: pointer;
-            transition: background-color 0.3s ease;
+            transition: background-color 0.3s;
         }
-    
         .project-box button:hover {
             background-color: #0056b3;
         }
-        .project-box:nth-child(1),
-        .project-box:nth-child(3),
-        .project-box:nth-child(4),
-        .project-box:nth-child(6) {
-            background-color: #e9ebf7; /* Light gray */
+        .project-details {
+            display: none;
+            margin-top: 10px;
         }
+        .project-box.expanded {
+            /*transform: scaleX(1.5); /* Expands box horizontally */
+            grid-column: span 3;
+            grid-row: span 4;
+        }
+        .project-box.expanded .project-details {
+            padding-right: 60px; /* Adjust padding for expanded state */
+            display: block;
+        }
+        /* Toggle bar! ----------------------------------*/
+        .toggle-bar{
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 30px;
+            height: 100%;
+            background-color: #94c8ff;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        /* Hover state for the strip */
+        .toggle-bar:hover {
+            background-color: #0056b3;
+        }
+
+        /* Expanded strip styling */
+        .project-box.expanded .toggle-bar {
+            background-color: #FFC107;
+        }
+
+        .toggle-bar:hover.expanded {
+            background-color: #ffd760;
+        }
+
+        /* Arrow inside the strip */
+        .arrow {
+            font-size: 16px;
+            transform: rotate(0deg);
+            transition: transform 0.3s ease;
+        }
+
+        /* Rotate arrow for expanded state */
+        .project-box.expanded .arrow {
+            transform: rotate(180deg); /* Pointing left */
+        }
+
     </style>
-    
-    
     <title>Blaine Tubungbanua's Portfolio</title>
     <!--<link rel="stylesheet" href="style.css"> -->
 </head>
@@ -257,7 +300,44 @@
                         <span class="arrow">&gt;</span>
                     </div>
                 </div>
-                
+                <div class="project-box">
+                    <h3>UVic Rocketry: N2O Injector CFD Analysis</h3>
+                    <img src="/assets/images/Injector-1.png" alt="Project 1">
+                    <p>CFD Analysis of different hybrid rocket engine injector configurations to achieve desired
+                        mass flow, pressure drop, and atomization into the combustion chamber, completed in ANSYS Fluent.
+                    </p>
+                    <div class="project-details">
+                        <p>This project was complepted in partnership with UVic Rocketry, and as a deliverable for a UVic technical elective:
+                            Computer Aided Engineering, where I studied modelling, FEA, and CFD in Siemens NX, and ANSYS.
+                        </p>
+                        <div class="project-img-box">
+                            <h3>2D & 3D Meshing</h3>
+                            <img src="/assets/images/Injector-2.png" alt="Project 2">
+                            <p></p>
+                            <p>To accelerate simulation time, 2D and 3D models were used. 2D simulations were used to quickly alter geometry and simulate results
+                                while 3D models were used to verify the 2D results and test the final configuration.
+                            </p>
+                        </div>
+                        <p>The scope of this simulation only covered injector flow, assuming no combustion, eliminating comustion simulation commplications,
+                            instead focusing on simulating pressures for cold flow tests.
+                        </p>
+                        <div class="project-img-box">
+                            <img src="/assets/images/Injector-4.png" alt="Project 2">
+                                <p>Optimization of the orifice diameter, length, and angle were investigated.
+                                    To accelerate simulation time, a simplfied 2D single orifice model was used, 
+                                    and and open-loop parameter optimization was conducted using the parameter set tools in ANSYS Workbench.
+                                </p>
+                        </div>
+                        <p></p>
+                        <div class="project-img-box">
+                            <img src="/assets/images/Injector-5.png" alt="Project 2">
+                                <p>A swirl injector was also investigated, proving to eliminate the air eddy seen in the non-swirled configuration.</p>
+                        </div>
+                    </div>
+                    <div class="toggle-bar">
+                        <span class="arrow">&gt;</span>
+                    </div>
+                </div>
                 <div class="project-box">
                     <h3>Mechatronic Conveyor Belt Sorter</h3>
                     <img src="/assets/images/Mechatronic-1.png" alt="Project 1">
@@ -301,44 +381,6 @@
                                     <li>W - White Plastic </li>
                                     <li>B - Black Plastic</li>
                                 </ul>
-                        </div>
-                    </div>
-                    <div class="toggle-bar">
-                        <span class="arrow">&gt;</span>
-                    </div>
-                </div>
-                <div class="project-box">
-                    <h3>UVic Rocketry: N2O Injector CFD Analysis</h3>
-                    <img src="/assets/images/Injector-1.png" alt="Project 1">
-                    <p>CFD Analysis of different hybrid rocket engine injector configurations to achieve desired
-                        mass flow, pressure drop, and atomization into the combustion chamber, completed in ANSYS Fluent.
-                    </p>
-                    <div class="project-details">
-                        <p>This project was complepted in partnership with UVic Rocketry, and as a deliverable for a UVic technical elective:
-                            Computer Aided Engineering, where I studied modelling, FEA, and CFD in Siemens NX, and ANSYS.
-                        </p>
-                        <div class="project-img-box">
-                            <h3>2D & 3D Meshing</h3>
-                            <img src="/assets/images/Injector-2.png" alt="Project 2">
-                            <p></p>
-                            <p>To accelerate simulation time, 2D and 3D models were used. 2D simulations were used to quickly alter geometry and simulate results
-                                while 3D models were used to verify the 2D results and test the final configuration.
-                            </p>
-                        </div>
-                        <p>The scope of this simulation only covered injector flow, assuming no combustion, eliminating comustion simulation commplications,
-                            instead focusing on simulating pressures for cold flow tests.
-                        </p>
-                        <div class="project-img-box">
-                            <img src="/assets/images/Injector-4.png" alt="Project 2">
-                                <p>Optimization of the orifice diameter, length, and angle were investigated.
-                                    To accelerate simulation time, a simplfied 2D single orifice model was used, 
-                                    and and open-loop parameter optimization was conducted using the parameter set tools in ANSYS Workbench.
-                                </p>
-                        </div>
-                        <p></p>
-                        <div class="project-img-box">
-                            <img src="/assets/images/Injector-5.png" alt="Project 2">
-                                <p>A swirl injector was also investigated, proving to eliminate the air eddy seen in the non-swirled configuration.</p>
                         </div>
                     </div>
                     <div class="toggle-bar">

@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expandable Project Box</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+
+        /* Grid container */
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        /* Project box */
+        .project-box {
+            position: relative;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            overflow: hidden;
+            transition: width 0.3s ease, background-color 0.3s ease;
+        }
+
+        /* Default box size */
+        .project-box.collapsed {
+            width: 300px;
+        }
+
+        /* Expanded box */
+        .project-box.expanded {
+            width: 500px;
+        }
+
+        /* Content */
+        .content {
+            padding: 20px;
+        }
+
+        /* Vertical strip */
+        .toggle-bar {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 30px;
+            height: 100%;
+            background-color: #007BFF;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        /* Hover state for the strip */
+        .toggle-bar:hover {
+            background-color: #0056b3;
+        }
+
+        /* Expanded strip styling */
+        .project-box.expanded .toggle-bar {
+            background-color: #FFC107;
+        }
+
+        .toggle-bar:hover.expanded {
+            background-color: #ffd760;
+        }
+
+        /* Arrow inside the strip */
+        .arrow {
+            font-size: 16px;
+            transform: rotate(0deg);
+            transition: transform 0.3s ease;
+        }
+
+        /* Rotate arrow for expanded state */
+        .project-box.expanded .arrow {
+            transform: rotate(180deg); /* Pointing left */
+        }
+    </style>
+</head>
+<body>
+    <div class="project-grid">
+        <!-- Project Box 1 -->
+        <div class="project-box collapsed">
+            <div class="content">
+                <h2>Project 1</h2>
+                <p>Brief description of the project.</p>
+            </div>
+            <div class="toggle-bar">
+                <span class="arrow">&gt;</span>
+            </div>
+        </div>
+
+        <!-- Project Box 2 -->
+        <div class="project-box collapsed">
+            <div class="content">
+                <h2>Project 2</h2>
+                <p>Brief description of the project.</p>
+            </div>
+            <div class="toggle-bar">
+                <span class="arrow">&gt;</span>
+            </div>
+        </div>
+
+        <!-- Project Box 3 -->
+        <div class="project-box collapsed">
+            <div class="content">
+                <h2>Project 3</h2>
+                <p>Brief description of the project.</p>
+            </div>
+            <div class="toggle-bar">
+                <span class="arrow">&gt;</span>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // JavaScript for toggling the expand/collapse state
+        document.querySelectorAll('.project-box').forEach(box => {
+            const toggleBar = box.querySelector('.toggle-bar');
+            toggleBar.addEventListener('click', () => {
+                // Toggle between expanded and collapsed
+                box.classList.toggle('expanded');
+                box.classList.toggle('collapsed');
+            });
+        });
+    </script>
+</body>
+</html>

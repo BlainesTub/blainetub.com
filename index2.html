@@ -23,12 +23,16 @@
             display: flex;
             align-items: center;
             margin-bottom: 50px;
+            text-align: center;
+            flex-direction: column;
         }
+    
         .intro img {
-            width: 160px;
-            height: 150px;
-            border-radius: 25%;
-            margin-right: 20px;
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            margin-bottom: 20px;
+            border: 3px solid #ccc;
         }
     
         .intro h1 {
@@ -53,27 +57,22 @@
         }
     
         .project-grid {
-            column-count: 3;
-            /*display: grid;
+            display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            grid-auto-rows: 1fr; /*masonry*/
-            gap: 30px;
-
+            gap: 20px;
         }
     
         .project-box {
             background: white;
-            border: 1px solid rgb(236, 235, 235);
             border-radius: 8px;
             padding: 20px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
             transition: transform 0.3s ease, box-shadow 0.3s ease;
-            margin-bottom: 30px;
             overflow: hidden;
         }
     
         .project-box:hover {
-            transform: translateY(-0px); /* Lift effect on hover */
+            transform: translateY(-5px); /* Lift effect on hover */
             box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
         }
     
@@ -119,14 +118,7 @@
         .project-box button:hover {
             background-color: #0056b3;
         }
-        .project-box:nth-child(1),
-        .project-box:nth-child(3),
-        .project-box:nth-child(4),
-        .project-box:nth-child(6) {
-            background-color: #e9ebf7; /* Light gray */
-        }
     </style>
-    
     
     <title>Blaine Tubungbanua's Portfolio</title>
     <!--<link rel="stylesheet" href="style.css"> -->
@@ -257,7 +249,44 @@
                         <span class="arrow">&gt;</span>
                     </div>
                 </div>
-                
+                <div class="project-box">
+                    <h3>UVic Rocketry: N2O Injector CFD Analysis</h3>
+                    <img src="/assets/images/Injector-1.png" alt="Project 1">
+                    <p>CFD Analysis of different hybrid rocket engine injector configurations to achieve desired
+                        mass flow, pressure drop, and atomization into the combustion chamber, completed in ANSYS Fluent.
+                    </p>
+                    <div class="project-details">
+                        <p>This project was complepted in partnership with UVic Rocketry, and as a deliverable for a UVic technical elective:
+                            Computer Aided Engineering, where I studied modelling, FEA, and CFD in Siemens NX, and ANSYS.
+                        </p>
+                        <div class="project-img-box">
+                            <h3>2D & 3D Meshing</h3>
+                            <img src="/assets/images/Injector-2.png" alt="Project 2">
+                            <p></p>
+                            <p>To accelerate simulation time, 2D and 3D models were used. 2D simulations were used to quickly alter geometry and simulate results
+                                while 3D models were used to verify the 2D results and test the final configuration.
+                            </p>
+                        </div>
+                        <p>The scope of this simulation only covered injector flow, assuming no combustion, eliminating comustion simulation commplications,
+                            instead focusing on simulating pressures for cold flow tests.
+                        </p>
+                        <div class="project-img-box">
+                            <img src="/assets/images/Injector-4.png" alt="Project 2">
+                                <p>Optimization of the orifice diameter, length, and angle were investigated.
+                                    To accelerate simulation time, a simplfied 2D single orifice model was used, 
+                                    and and open-loop parameter optimization was conducted using the parameter set tools in ANSYS Workbench.
+                                </p>
+                        </div>
+                        <p></p>
+                        <div class="project-img-box">
+                            <img src="/assets/images/Injector-5.png" alt="Project 2">
+                                <p>A swirl injector was also investigated, proving to eliminate the air eddy seen in the non-swirled configuration.</p>
+                        </div>
+                    </div>
+                    <div class="toggle-bar">
+                        <span class="arrow">&gt;</span>
+                    </div>
+                </div>
                 <div class="project-box">
                     <h3>Mechatronic Conveyor Belt Sorter</h3>
                     <img src="/assets/images/Mechatronic-1.png" alt="Project 1">
@@ -301,44 +330,6 @@
                                     <li>W - White Plastic </li>
                                     <li>B - Black Plastic</li>
                                 </ul>
-                        </div>
-                    </div>
-                    <div class="toggle-bar">
-                        <span class="arrow">&gt;</span>
-                    </div>
-                </div>
-                <div class="project-box">
-                    <h3>UVic Rocketry: N2O Injector CFD Analysis</h3>
-                    <img src="/assets/images/Injector-1.png" alt="Project 1">
-                    <p>CFD Analysis of different hybrid rocket engine injector configurations to achieve desired
-                        mass flow, pressure drop, and atomization into the combustion chamber, completed in ANSYS Fluent.
-                    </p>
-                    <div class="project-details">
-                        <p>This project was complepted in partnership with UVic Rocketry, and as a deliverable for a UVic technical elective:
-                            Computer Aided Engineering, where I studied modelling, FEA, and CFD in Siemens NX, and ANSYS.
-                        </p>
-                        <div class="project-img-box">
-                            <h3>2D & 3D Meshing</h3>
-                            <img src="/assets/images/Injector-2.png" alt="Project 2">
-                            <p></p>
-                            <p>To accelerate simulation time, 2D and 3D models were used. 2D simulations were used to quickly alter geometry and simulate results
-                                while 3D models were used to verify the 2D results and test the final configuration.
-                            </p>
-                        </div>
-                        <p>The scope of this simulation only covered injector flow, assuming no combustion, eliminating comustion simulation commplications,
-                            instead focusing on simulating pressures for cold flow tests.
-                        </p>
-                        <div class="project-img-box">
-                            <img src="/assets/images/Injector-4.png" alt="Project 2">
-                                <p>Optimization of the orifice diameter, length, and angle were investigated.
-                                    To accelerate simulation time, a simplfied 2D single orifice model was used, 
-                                    and and open-loop parameter optimization was conducted using the parameter set tools in ANSYS Workbench.
-                                </p>
-                        </div>
-                        <p></p>
-                        <div class="project-img-box">
-                            <img src="/assets/images/Injector-5.png" alt="Project 2">
-                                <p>A swirl injector was also investigated, proving to eliminate the air eddy seen in the non-swirled configuration.</p>
                         </div>
                     </div>
                     <div class="toggle-bar">

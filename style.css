@@ -33,12 +33,12 @@ body {
     text-align: center;
     margin-bottom: 30px;
 }
-.project-container {
+.project-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 20px;
 }
-.project {
+.project-box {
     background: white;
     border: 1px solid #ccc;
     border-radius: 4px;
@@ -74,7 +74,7 @@ body {
     margin-right: auto;
     text-align: center;
 }
-.project img {
+.project-box img {
     display:block;
     width: 75%;
     height: auto;
@@ -88,14 +88,14 @@ body {
 }
 
 
-.project h3 {
+.project-box h3 {
     margin: 0;
     font-size: 1.5em;
 }
-.project p {
+.project-box p {
     margin: 10px 0;
 }
-.project button {
+.project-box button {
     display: block;
     margin: 10px auto;
     padding: 10px 20px;
@@ -107,18 +107,18 @@ body {
     cursor: pointer;
     transition: background-color 0.3s;
 }
-.project button:hover {
+.project-box button:hover {
     background-color: #0056b3;
 }
 .project-details {
     display: none;
     margin-top: 10px;
 }
-.project.expanded {
+.project-box.expanded {
     grid-column: span 2;
     grid-row: span 1;
 }
-.project.expanded .project-details {
+.project-box.expanded .project-details {
     display: block;
 }
 
