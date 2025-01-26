@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        /* Basic Page Setup */
+        body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background: #f7f9fc;
+        overflow-x: hidden; /* Prevent horizontal scroll during sliding */
+        }
+
+        /* Tab Styles */
+        .tabs {
+        display: flex;
+        justify-content: flex-start; /* Align tabs to the left */
+        position: relative;
+        top: 0;
+        left: 0;
+        width: fit-content; /* Shrink tabs to fit content */
+        background: #ccc;
+        padding: 0;
+        margin: 0;
+        border-radius: 8px 8px 0 0;
+        overflow: hidden; /* Hide overflow for smooth transitions */
+        box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .tab-button {
+        padding: 10px 20px;
+        font-size: 0.9em;
+        background: #eee;
+        color: #333;
+        border: none;
+        cursor: pointer;
+        transition: background-color 0.3s ease, color 0.3s ease;
+        border-radius: 8px 8px 0 0;
+        box-shadow: 0px -1px 0px rgba(0, 0, 0, 0.2);
+        }
+
+        .tab-button:hover {
+        background: #ddd;
+        }
+
+        .tab-button.active {
+        background: white;
+        color: #007BFF;
+        z-index: 1; /* Keep active tab above others */
+        }
+
+        /* Tab Content */
+        .tab-content {
+        position: relative;
+        width: 100%;
+        height: 100vh; /* Full viewport height */
+        overflow: hidden;
+        }
+
+        .tab-pane {
+        position: absolute;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background: #f7f9fc;
+        padding: 20px;
+        box-sizing: border-box;
+        transition: transform 0.5s ease;
+        z-index: 0;
+        }
+
+        .tab-pane.active {
+        z-index: 2;
+        }
+
+        .tab-pane:not(.active) {
+        z-index: 1;
+        }
+
+
+    </style>
+    
+    <div class="tabs">
+        <button class="tab-button" data-tab="engineering">Engineering</button>
+        <button class="tab-button" data-tab="music">Music</button>
+      </div>
+      
+      <div class="tab-content">
+        <div id="engineering" class="tab-pane active">
+          <!-- Engineering Content -->
+          <h2>Engineering Projects</h2>
+          <p>Your engineering content goes here...</p>
+        </div>
+      
+        <div id="music" class="tab-pane">
+          <!-- Music Content -->
+          <h2>Music Projects</h2>
+          <p>Your music content goes here...</p>
+                
+
+
+          <!-- End of Music Content -->
+        </div>
+      </div>
+      
+
+
+
+    <script>
+        document.querySelectorAll('.tab-button').forEach((button, index) => {
+        button.addEventListener('click', () => {
+            const tabId = button.getAttribute('data-tab');
+
+            // Update active button
+            document.querySelectorAll('.tab-button').forEach((btn) => btn.classList.remove('active'));
+            button.classList.add('active');
+
+            // Update active panes and handle sliding direction
+            document.querySelectorAll('.tab-pane').forEach((pane) => {
+            pane.classList.remove('active');
+            });
+
+            const activePane = document.getElementById(tabId);
+            activePane.classList.add('active');
+
+            // Determine slide direction
+            document.querySelectorAll('.tab-pane').forEach((pane, i) => {
+            if (i < index) {
+                pane.style.transform = 'translateX(-100%)'; // Slide left for previous tabs
+            } else if (i === index) {
+                pane.style.transform = 'translateX(0)'; // Center for active tab
+            } else {
+                pane.style.transform = 'translateX(100%)'; // Slide right for upcoming tabs
+            }
+            });
+        });
+        });
+
+        // Initial setup to ensure tabs are placed correctly
+        document.querySelectorAll('.tab-pane').forEach((pane, index) => {
+        pane.style.transform = index === 0 ? 'translateX(0)' : 'translateX(100%)';
+        });
+
+    </script>
+</body>
+</html>
